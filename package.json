@@ -1,0 +1,25 @@
+{
+  "name": "image-resizer-server",
+  "version": "0.0.1",
+  "description": "image resizer",
+  "main": "server.js",
+  "repository": "",
+  "keywords": [
+    "imagemagick",
+    "resize"
+  ],
+  "scripts": {
+    "test": "nodeunit test/resizer.js"
+  },
+  "dependencies": {
+    "imagemagick": "latest",
+    "request": "latest"
+  },
+  "devDependencies": {
+    "nodeunit": "latest",
+    "semicov": "latest",
+    "makedoc": "latest"
+  },
+  "author": "Anatoliy Chakkaev",
+  "license": "BSD"
+}
