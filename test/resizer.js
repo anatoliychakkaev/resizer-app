@@ -35,7 +35,8 @@ context('Resizer', function () {
         var wait = sizes.length;
 
         function ok(err, data) {
-            test.ok(prev < data.image.length);
+            console.log('adasasdada', data.image.length);
+            test.ok(prev < data.image.length, wait + ': ' + data.image.length);
             prev = data.image.length;
             if (--wait === 0) {
                 test.equal(requestsDone, 1, 'Only one request done');
@@ -43,6 +44,28 @@ context('Resizer', function () {
             }
         }
     });
+
+    /*
+     * This test case failing because of problem in imagemagick lib
+     * ./node_modules/imagemagick/imagemagick.js:118
+     * should be:
+     *    while (indent < prevIndent && props.length > 1) {
+     * instead of:
+     *    while (indent < prevIndent) {
+     * TODO: submit pull request to imagemagick
+     *
+    it('should fail because of imagemagick problem', function (test) {
+        var r = new Resizer(imageUrl);
+        removeCache(r.file);
+        r.resize({width: 50, height: 10}, function (err, data) {
+            test.ok(!err);
+            test.equal(data.type, 'png');
+            test.ok(data.image.length);
+            test.done();
+        });
+    });
+    */
+
 });
 
 function removeCache(file) {
