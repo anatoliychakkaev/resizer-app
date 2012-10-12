@@ -5,7 +5,7 @@
 then open
 `http://localhost:3000/?u=http://www.google.com/images/srpr/logo3w.png&w=300&h=100` in browser
 
-request params:
+Request params:
 
 - u - url of image
 - w - width (positive integer)
@@ -15,6 +15,8 @@ request params:
 ## Tests
 
     npm test
+
+Test coverage report available in `./coverage/index.html`
 
 ## Documentation
 
